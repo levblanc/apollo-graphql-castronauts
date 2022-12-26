@@ -1,0 +1,27 @@
+{
+  "name": "catstronauts-server-complete",
+  "version": "1.0.0",
+  "description": "back-end for Apollo's course",
+  "main": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "compile": "tsc",
+    "start": "node --experimental-specifier-resolution=node --loader ts-node/esm ./src/index.ts"
+  },
+  "dependencies": {
+    "@apollo/server": "^4.3.0",
+    "@graphql-tools/mock": "^8.7.14",
+    "@graphql-tools/schema": "^9.0.12",
+    "graphql": "^16.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.17",
+    "dotenv": "^8.6.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4"
+  },
+  "author": "levblanc@gmail.com",
+  "license": "MIT",
+  "private": true
+}
