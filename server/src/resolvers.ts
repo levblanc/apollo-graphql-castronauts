@@ -3,6 +3,9 @@ const resolvers = {
     tracksForHome: async (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
     },
+    track: async (_, { id }, { dataSources }) => {
+      return dataSources.trackAPI.getTrack(id);
+    },
   },
 
   Track: {
