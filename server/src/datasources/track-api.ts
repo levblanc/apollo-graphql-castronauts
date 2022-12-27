@@ -1,16 +1,29 @@
 import { RESTDataSource } from '@apollo/datasource-rest';
 
-class TrackAPI extends RESTDataSource {
-  constructor() {
-    super();
-    this.baseURL = 'https://odyssey-lift-off-rest-api.herokuapp.com/';
-  }
+type Author = {
+  id: string;
+  name: string;
+  photo: string;
+};
 
-  getTracksForHome() {
+type Track = {
+  id: string;
+  title: string;
+  author: Author;
+  thumbnail: string;
+  length: number;
+  modulesCount: number;
+};
+
+class TrackAPI extends RESTDataSource {
+  override baseURL?: string =
+    'https://odyssey-lift-off-rest-api.herokuapp.com/';
+
+  async getTracksForHome(): Promise<Track[]> {
     return this.get('tracks');
   }
 
-  getAuthor(authorId) {
+  async getAuthor(authorId): Promise<Author> {
     return this.get(`author/${authorId}`);
   }
 }

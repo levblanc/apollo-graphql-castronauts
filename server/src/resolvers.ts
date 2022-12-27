@@ -1,12 +1,12 @@
 const resolvers = {
   Query: {
-    tracksForHome: (_, __, { dataSources }) => {
+    tracksForHome: async (_, __, { dataSources }) => {
       return dataSources.trackAPI.getTracksForHome();
     },
   },
 
   Track: {
-    author: ({ authorId }, _, { dataSources }) => {
+    author: async ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
   },

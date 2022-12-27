@@ -4,7 +4,13 @@ import typeDefs from './schema';
 import resolvers from './resolvers';
 import TrackAPI from './datasources/track-api';
 
-const server = new ApolloServer({
+interface ContextValue {
+  dataSources: {
+    trackAPI: TrackAPI;
+  };
+}
+
+const server = new ApolloServer<ContextValue>({
   typeDefs,
   resolvers,
 });
@@ -14,7 +20,7 @@ const { url } = await startStandaloneServer(server, {
     const { cache } = server;
 
     return {
-      dataSources: { trackAPI: new TrackAPI() },
+      dataSources: { trackAPI: new TrackAPI({ cache }) },
     };
   },
   listen: { port: 4000 },
