@@ -40,6 +40,10 @@ class TrackAPI extends RESTDataSource {
   async getTrackModules(trackId): Promise<Module[]> {
     return this.get(`track/${trackId}/modules`);
   }
+
+  async incrementTrackViews(trackId) {
+    return this.patch(`track/${trackId}/numberOfViews`);
+  }
 }
 
 export default TrackAPI;
