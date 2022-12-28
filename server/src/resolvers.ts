@@ -12,6 +12,9 @@ const resolvers = {
     author: async ({ authorId }, _, { dataSources }) => {
       return dataSources.trackAPI.getAuthor(authorId);
     },
+    modules: async ({ id }, _, { dataSources }) => {
+      return dataSources.trackAPI.getTrackModules(id);
+    },
   },
 };
 

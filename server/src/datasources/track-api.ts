@@ -15,6 +15,12 @@ type Track = {
   modulesCount: number;
 };
 
+type Module = {
+  id: string;
+  title: string;
+  length: number;
+};
+
 class TrackAPI extends RESTDataSource {
   override baseURL?: string =
     'https://odyssey-lift-off-rest-api.herokuapp.com/';
@@ -29,6 +35,10 @@ class TrackAPI extends RESTDataSource {
 
   async getTrack(trackId): Promise<Track> {
     return this.get(`track/${trackId}`);
+  }
+
+  async getTrackModules(trackId): Promise<Module[]> {
+    return this.get(`track/${trackId}/modules`);
   }
 }
 

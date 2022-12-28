@@ -13,9 +13,19 @@ const typeDefs = `#graphql
     thumbnail: String
     length: Int
     modulesCount: Int
+    description: String
+    numberOfViews: Int
+    modules: [Module!]!
   }
 
-  # Author of a complete Track
+  # A Module is a single unit of teaching. Multiple Modules compose a Track
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
+  }
+
+  # Author of a complete Track or a Module
   type Author {
     id: ID!
     name: String!
